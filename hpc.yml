@@ -1,8 +1,10 @@
 - name: Setup base hpc
   hosts: all
-  become: yes
+  vars:
+    testvar: "azcopy sync \"{{ lookup('env','SAS_URL') }}\" ./ --recursive"
   tasks:
   - name: Make sure epel-release is available
+    become: yes
     yum:
       name: epel-release
 
@@ -27,19 +29,23 @@
       - netcdf-fortran-mpich-devel
       - hdf5-mpich
       - hdf5-mpich-devel
+      - patch
 
   - name: Add user hpc
+    become: yes
     user:
       name: hpc
       shell: /bin/bash
 
   - name: Set SSH key
+    become: yes
     authorized_key:
       user: hpc
       state: present
       key: "{{ lookup('file', '~/hpc.key.pub') }}"
 
   - name: Add hpc to sudoers
+    become: yes
     copy:
       dest: "/etc/sudoers.d/devops"
       content: "hpc  ALL=(ALL)  NOPASSWD: ALL"
@@ -49,5 +55,27 @@
     unarchive:
       src: https://aka.ms/downloadazcopy-v10-linux
       dest: /usr/bin
+      creates: /usr/bin/azcopy
       remote_src: yes
       extra_opts: [--strip-components=1]
+
+  - name: Download blob
+    become: yes
+    become_user: hpc
+    shell: "azcopy sync \"{{ lookup('env','SAS_URL') }}\" ./ --recursive"
+
+  - name: Compile
+    become: yes
+    become_user: hpc
+    shell: |
+      export PATH=$PATH:/usr/lib64/mpich/bin/
+      chmod -R 755 FVCOM41
+      cd FVCOM41/Configure/
+      ./setup -a FEDORA-GCC -c wvi_inlets4_heating
+
+      make clean
+      make libs gotm fvcom
+      make
+      cd ..
+      cd FVCOM_source
+      cp fvcom ../

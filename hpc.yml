@@ -74,8 +74,9 @@
       ./setup -a FEDORA-GCC -c wvi_inlets4_heating
 
       make clean
-      make libs gotm fvcom
-      make
-      cd ..
-      cd FVCOM_source
-      cp fvcom ../
+      make libs gotm fvcom -j `nproc`
+      make -j `nproc`
+      cd
+      cp FVCOM41/FVCOM_source/fvcom FVCOM41/_run
+      
+

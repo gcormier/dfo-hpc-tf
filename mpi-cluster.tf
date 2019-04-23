@@ -93,22 +93,17 @@ resource "azurerm_virtual_machine" "vm" {
 
   os_profile {
     computer_name  = "hpc-vm${count.index}"
-    admin_username = "hpc"
+    admin_username = "ansible"
   }
   os_profile_linux_config {
     disable_password_authentication = "true"
 
     ssh_keys {
       path     = "/home/ansible/.ssh/authorized_keys"
-      key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCx9DB9uLxaQqDgnWuzUaA+0FbuTKlX3o/I8J9ZX+SGMcOVxTgzzfU2VM/Nn6KQnKSIyxIysffGyIwC1GvMPF56+eWqei23R3bVTvnnlqtkt+dnBp5g0FMFdKkY6a94EQg8kYZ3QNkf027qi57XWfTAGwdHNXRLGTSbDicJqRh62tDnAhhx1/cMGOowVZZluadLIV2IG5XK79Pa5Hs1wLYW0dUnWFBCSXE/g+MVTggQFWhdeRI0dMapp6dk5/xny0oD8SkDXQc0nMiR+wzDko5I+q5Y7cmpHbpn9KL7jsPYNyuloRrfElszchtHheSo1tsw8ySoxNZz4MBq3RNmLI0CzerxSH/zjmq2Q88PGT92r9NOfl16Fk9IdLvmss7JeN58BIqbByKCqq/U6lV9N1hNA0H9AG9hA83ncQX0hNUdTbhpcKNozEzy0Fv6Bu/DAnfKb8jnFLnQgyoO3cNAzmM/ty1/+msUbc1riBoP3zrmFLbjmxa1AEx3ivgQR/0193DHkBGGKLg3V3aMyqZ1mGmeXL262Q== Greg@MEDUSA"
+      key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCyeslZL7rYdXx9LseK6Uur9jNR5Ed7Tjg3dgP4+v/DcYH/cQvV8RMY4FDJA/t6RKDcN91CMPnc05XCTjcP1hmKOyLUeJXvAzbAtQWcorGmiHwMpXkSkRBuOxTnkOcAVbEDXwnXWUCo2GJq0am2KtVD8L031qBDlJwwNrzjKBr6QP0ApJs0fGcjDUD8j9szFr3xx4NyeDhkCHMtPGqCxNVeUR7JHjUQBHvTHaSLtQuChW/BpjnQysKIWUkjflvprClUH28UXHFS1C+O0+N+W5wrfJ9UbqgjN/BPT2vWAs3fyZjT1RUrrzuGFil5Z9hvJm35U0IoJ0RYUazJ7lE69bqiFEBqUMSBHFuAloXjp22odMtk0+mhGKpckXXg19zQtwIz6LQEHokawNI1+e6y7041FCDU8HvozN5fz+lJx2rkIDHSk6vO3Nroci02DGGlV6QEzI4BRd1prj6tE71MZ8k7/KQMrubfxtXuzBsozjp+LPB62MZj/ex9tApYg+TmwFcluHF+6LHOuk+Ubq03tMlGSymcKn6km2s9sGqQ6X7WY+55g+V4JcdnFjeNyzIX+T4kMAVl6nM0gWUrSlrc5Y95MA7pFNQJMyA0MUPp3FRX7Z25jDuqZcgmTrd0YLL63bxjgSSd0sV7prPEo6ho3vWKKyZo9L3UPIEWpm/X/MD89Q== greg"
     }
   }
-  provisioner "local-exec" {
-    interpreter = ["/bin/bash"]
-    command     = "sudo yum -y install epel-release"
-
-    #&& sudo yum -y install gfortran cmake git makedepf90 gcc netcdf netcdf-devel netcdf-fortran-devel netcdf-fortran netcdf-static mpich-3.0 mpich-3.0-devel netcdf-fortran-mpich netcdf-fortran-mpich-devel hdf5-mpich hdf5-mpich-devel
-  }
+  
   tags {
     environment = "hpc"
   }
@@ -118,6 +113,6 @@ output "Private_IP_Addresses" {
   value = "${azurerm_network_interface.vnic.*.private_ip_addresses}"
 }
 
-output "Public_IP_Addresses" {
-  value = "${azurerm_public_ip.pip.*.id}"
+output "pips" {
+  value = "${azurerm_public_ip.pip.*.ip_address}"
 }

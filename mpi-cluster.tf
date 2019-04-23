@@ -63,6 +63,7 @@ resource "azurerm_virtual_machine" "vm" {
   #vm_size               = "Standard_B2ms"
   #vm_size               = "Standard_F64s_v2"
   vm_size               = "Standard_H16r"
+  #vm_size               = "Standard_Hc44rs"
   
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM

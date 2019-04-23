@@ -109,10 +109,11 @@ resource "azurerm_virtual_machine" "vm" {
   }
 }
 
-output "Private_IP_Addresses" {
-  value = "${azurerm_network_interface.vnic.*.private_ip_addresses}"
-}
+# You don't really need to output this. Ansible can grab private IP's on its own.
+#output "Private_IP_Addresses" {
+#  value = "${azurerm_network_interface.vnic.*.private_ip_addresses}"
+#}
 
-output "pips" {
+output "pips_for_ansible_hosts" {
   value = "${azurerm_public_ip.pip.*.ip_address}"
 }

@@ -35,7 +35,7 @@ resource "azurerm_network_interface" "vnic" {
   name                = "hpc-nic${count.index}"
   location            = "${azurerm_resource_group.RG.location}"
   resource_group_name = "${azurerm_resource_group.RG.name}"
-  
+
   ip_configuration {
     name                          = "testConfiguration"
     subnet_id                     = "${azurerm_subnet.subnet.id}"
@@ -84,32 +84,31 @@ resource "azurerm_virtual_machine" "vm" {
 
   # Optional data disks
   #storage_data_disk {
-    #name              = "datadisk_new_${count.index}"
-    #managed_disk_type = "Standard_LRS"
-    #create_option     = "Empty"
-    #lun               = 0
-    #disk_size_gb      = "256"
+  #name              = "datadisk_new_${count.index}"
+  #managed_disk_type = "Standard_LRS"
+  #create_option     = "Empty"
+  #lun               = 0
+  #disk_size_gb      = "256"
   #}
 
   os_profile {
     computer_name  = "hpc-vm${count.index}"
     admin_username = "hpc"
   }
-
   os_profile_linux_config {
     disable_password_authentication = "true"
 
     ssh_keys {
-      path     = "/home/hpc/.ssh/authorized_keys"
-      key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAq/Q3ORIm6Sl82lQseGdgFp7E/T1/KNy007HiSSPkrFARd82FGa6WPhAaD2S5ri3sM7f3ZyOsHuHsM+MESLp4wokxF2Bkkwb6LNm7uTeXhuWu8KWa+X4Wyoa46Ku8h5687oCvVt2va4MqzVBgwLjOgnnQA0bTM0pRWhVqcPrxWiD7t2fTqLVs0MonSrl0yiPtheEPxUsChDXZ+x+n/ryg9ITPf5XRCb7W+9zkHEVKDHMM/vD4ZJNG9VzVo8XT2IBbEqIEXLLmhpvRWRxOc19hWVP3X2T6mTOXBw0RJUAKFt40YElpzGpZJu9/UfP3BbF3uTlZnVICe8zyJzFHMZibeQ== "
+      path     = "/home/ansible/.ssh/authorized_keys"
+      key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCx9DB9uLxaQqDgnWuzUaA+0FbuTKlX3o/I8J9ZX+SGMcOVxTgzzfU2VM/Nn6KQnKSIyxIysffGyIwC1GvMPF56+eWqei23R3bVTvnnlqtkt+dnBp5g0FMFdKkY6a94EQg8kYZ3QNkf027qi57XWfTAGwdHNXRLGTSbDicJqRh62tDnAhhx1/cMGOowVZZluadLIV2IG5XK79Pa5Hs1wLYW0dUnWFBCSXE/g+MVTggQFWhdeRI0dMapp6dk5/xny0oD8SkDXQc0nMiR+wzDko5I+q5Y7cmpHbpn9KL7jsPYNyuloRrfElszchtHheSo1tsw8ySoxNZz4MBq3RNmLI0CzerxSH/zjmq2Q88PGT92r9NOfl16Fk9IdLvmss7JeN58BIqbByKCqq/U6lV9N1hNA0H9AG9hA83ncQX0hNUdTbhpcKNozEzy0Fv6Bu/DAnfKb8jnFLnQgyoO3cNAzmM/ty1/+msUbc1riBoP3zrmFLbjmxa1AEx3ivgQR/0193DHkBGGKLg3V3aMyqZ1mGmeXL262Q== Greg@MEDUSA"
     }
   }
+  provisioner "local-exec" {
+    interpreter = ["/bin/bash"]
+    command     = "sudo yum -y install epel-release"
 
-  #provisioner "local-exec" {
-    #command = "sudo yum -y install epel-release"
     #&& sudo yum -y install gfortran cmake git makedepf90 gcc netcdf netcdf-devel netcdf-fortran-devel netcdf-fortran netcdf-static mpich-3.0 mpich-3.0-devel netcdf-fortran-mpich netcdf-fortran-mpich-devel hdf5-mpich hdf5-mpich-devel
-  #}
-
+  }
   tags {
     environment = "hpc"
   }
@@ -117,4 +116,8 @@ resource "azurerm_virtual_machine" "vm" {
 
 output "Private_IP_Addresses" {
   value = "${azurerm_network_interface.vnic.*.private_ip_addresses}"
+}
+
+output "Public_IP_Addresses" {
+  value = "${azurerm_public_ip.pip.*.id}"
 }

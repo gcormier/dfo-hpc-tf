@@ -43,3 +43,11 @@
     copy:
       dest: "/etc/sudoers.d/devops"
       content: "hpc  ALL=(ALL)  NOPASSWD: ALL"
+
+  - name: Install azcopy to /usr/bin
+    become: yes
+    unarchive:
+      src: https://aka.ms/downloadazcopy-v10-linux
+      dest: /usr/bin
+      remote_src: yes
+      extra_opts: [--strip-components=1]

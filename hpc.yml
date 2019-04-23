@@ -104,7 +104,7 @@
   - debug: 
       msg: "Internal IP's : {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }}"
 
-  - name: Run
+  - name: Do science
     become: yes
     become_user: hpc
     run_once: true

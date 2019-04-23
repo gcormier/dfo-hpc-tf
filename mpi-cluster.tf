@@ -23,7 +23,7 @@ resource "azurerm_subnet" "subnet" {
 }
 
 resource "azurerm_public_ip" "pip" {
-  name                = "hpc-vm${count.index}-pip"
+  name                = "hpc-vm${count.index+1}-pip"
   location            = "${azurerm_resource_group.RG.location}"
   resource_group_name = "${azurerm_resource_group.RG.name}"
   allocation_method   = "Static"
@@ -32,7 +32,7 @@ resource "azurerm_public_ip" "pip" {
 
 resource "azurerm_network_interface" "vnic" {
   count               = "${var.instance_count}"
-  name                = "hpc-nic${count.index}"
+  name                = "hpc-nic${count.index+1}"
   location            = "${azurerm_resource_group.RG.location}"
   resource_group_name = "${azurerm_resource_group.RG.name}"
 
@@ -55,12 +55,13 @@ resource "azurerm_availability_set" "avset" {
 
 resource "azurerm_virtual_machine" "vm" {
   count                 = "${var.instance_count}"
-  name                  = "hpc-vm${count.index}"
+  name                  = "hpc-vm${count.index+1}"
   location              = "${azurerm_resource_group.RG.location}"
   availability_set_id   = "${azurerm_availability_set.avset.id}"
   resource_group_name   = "${azurerm_resource_group.RG.name}"
   network_interface_ids = ["${element(azurerm_network_interface.vnic.*.id, count.index)}"]
-  vm_size               = "Standard_B4ms"
+  #vm_size               = "Standard_B4ms"
+  vm_size               = "Standard_F4s_v2"
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
   delete_os_disk_on_termination = true
@@ -76,7 +77,7 @@ resource "azurerm_virtual_machine" "vm" {
   }
 
   storage_os_disk {
-    name              = "osdisk${count.index}"
+    name              = "osdisk${count.index+1}"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
@@ -92,7 +93,7 @@ resource "azurerm_virtual_machine" "vm" {
   #}
 
   os_profile {
-    computer_name  = "hpc-vm${count.index}"
+    computer_name  = "hpc-vm${count.index+1}"
     admin_username = "ansible"
   }
   os_profile_linux_config {

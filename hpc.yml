@@ -1,13 +1,29 @@
 - name: Setup base hpc
   hosts: all
   tasks:
-  - name: install repo
+  - name: Make sure epel-release is available
+    become: yes
     yum:
       name: epel-release
-      state: latest
-      become: yes
-  - name: install repo
+
+  - name: Install packages for compilation
+    become: yes
     yum:
-      name: gfortran cmake git makedepf90 gcc netcdf netcdf-devel netcdf-fortran-devel netcdf-fortran netcdf-static mpich-3.0 mpich-3.0-devel netcdf-fortran-mpich netcdf-fortran-mpich-devel hdf5-mpich hdf5-mpich-devel
-      state: latest
-      become: yes
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - cmake
+      - git
+      - makedepf90
+      - gcc
+      - netcdf
+      - netcdf-devel
+      - netcdf-fortran-devel
+      - netcdf-fortran
+      - netcdf-static
+      - mpich-3.0
+      - mpich-3.0-devel
+      - netcdf-fortran-mpich
+      - netcdf-fortran-mpich-devel
+      - hdf5-mpich
+      - hdf5-mpich-devel

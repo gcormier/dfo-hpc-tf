@@ -60,7 +60,7 @@ resource "azurerm_virtual_machine" "vm" {
   availability_set_id   = "${azurerm_availability_set.avset.id}"
   resource_group_name   = "${azurerm_resource_group.RG.name}"
   network_interface_ids = ["${element(azurerm_network_interface.vnic.*.id, count.index)}"]
-  vm_size               = "Standard_B2ms"
+  vm_size               = "Standard_B4ms"
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
   delete_os_disk_on_termination = true
@@ -92,7 +92,7 @@ resource "azurerm_virtual_machine" "vm" {
   #}
 
   os_profile {
-    computer_name  = "${azurerm_virtual_machine.vm.name}"
+    computer_name  = "hpc-vm${count.index}"
     admin_username = "hpc"
   }
 
@@ -101,28 +101,20 @@ resource "azurerm_virtual_machine" "vm" {
 
     ssh_keys {
       path     = "/home/hpc/.ssh/authorized_keys"
-      key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAq/Q3ORIm6Sl82lQseGdgFp7E/T1/KNy007HiSSPkrFARd82FGa6WPhAaD2S5ri3sM7f3ZyOsHuHsM+MESLp4wokxF2Bkkwb6LNm7uTeXhuWu8KWa+X4Wyoa46Ku8h5687oCvVt2va4MqzVBgwLjOgnnQA0bTM0pRWhVqcPrxWiD7t2fTqLVs0MonSrl0yiPtheEPxUsChDXZ+x+n/ryg9ITPf5XRCb7W+9zkHEVKDHMM/vD4ZJNG9VzVo8XT2IBbEqIEXLLmhpvRWRxOc19hWVP3X2T6mTOXBw0RJUAKFt40YElpzGpZJu9/UfP3BbF3uTlZnVICe8zyJzFHMZibeQ== Greg DFO"
+      key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAq/Q3ORIm6Sl82lQseGdgFp7E/T1/KNy007HiSSPkrFARd82FGa6WPhAaD2S5ri3sM7f3ZyOsHuHsM+MESLp4wokxF2Bkkwb6LNm7uTeXhuWu8KWa+X4Wyoa46Ku8h5687oCvVt2va4MqzVBgwLjOgnnQA0bTM0pRWhVqcPrxWiD7t2fTqLVs0MonSrl0yiPtheEPxUsChDXZ+x+n/ryg9ITPf5XRCb7W+9zkHEVKDHMM/vD4ZJNG9VzVo8XT2IBbEqIEXLLmhpvRWRxOc19hWVP3X2T6mTOXBw0RJUAKFt40YElpzGpZJu9/UfP3BbF3uTlZnVICe8zyJzFHMZibeQ== "
     }
   }
 
-  provisioner "local-exec" {
-    command = "sudo yum -y install epel-release"
+  #provisioner "local-exec" {
+    #command = "sudo yum -y install epel-release"
     #&& sudo yum -y install gfortran cmake git makedepf90 gcc netcdf netcdf-devel netcdf-fortran-devel netcdf-fortran netcdf-static mpich-3.0 mpich-3.0-devel netcdf-fortran-mpich netcdf-fortran-mpich-devel hdf5-mpich hdf5-mpich-devel
-  }
+  #}
 
   tags {
     environment = "hpc"
   }
 }
 
-output "Virtual Machines" {
-  value = "${azurerm_virtual_machine.VM.*.name}"
-}
-
 output "Private_IP_Addresses" {
-  value = "${azurerm_network_interface.nic.*.private_ip_addresses}"
-}
-
-output "Public_IP_Addresses" {
-  value = "${azurerm_network_interface.nic.*.public_ip_addresses}"
+  value = "${azurerm_network_interface.vnic.*.private_ip_addresses}"
 }

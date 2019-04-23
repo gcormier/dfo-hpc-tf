@@ -44,6 +44,17 @@
       state: present
       key: "{{ lookup('file', '~/hpc.key.pub') }}"
 
+  - name: Distribute private keyfiles to hosts
+    become: yes
+    become_user: hpc
+    copy: 
+      src: "~/hpc.key"
+      dest: "/home/hpc/.ssh/id_dsa" 
+      mode: 0600
+    #with_items:
+    #  - app_keys/id_dsa.pub
+    #  - app_keys/id_dsa
+
   - name: Add hpc to sudoers
     become: yes
     copy:
@@ -80,6 +91,12 @@
       cp FVCOM41/FVCOM_source/fvcom _run
 
       sudo chmod 777 /mnt
-      mpirun ./fvcom --CASENAME=wvi_inlets4
+  
+  #- name: Run
+    #become: yes
+    #become_user: hpc
+    #shell: |
+      #cd _run
+      #mpirun ./fvcom --CASENAME=wvi_inlets4
 
 

@@ -70,7 +70,7 @@ resource "azurerm_virtual_machine" "vm" {
 
   storage_image_reference {
     publisher = "OpenLogic"
-    offer     = "CentOS"
+    offer     = "CentOS-HPC"
     sku       = "7.4"
     version   = "latest"
   }

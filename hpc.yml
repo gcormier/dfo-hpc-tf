@@ -59,6 +59,13 @@
       dest: "/etc/sudoers.d/devops"
       content: "hpc  ALL=(ALL)  NOPASSWD: ALL"
 
+  - name: Disable host SSH key checking
+    become: yes
+    become_user: hpc
+    copy:
+      dest: "~/.ssh/config"
+      content: "Host *\n    StrictHostKeyChecking no\n"
+
   - name: Install azcopy to /usr/bin
     become: yes
     unarchive:
@@ -89,7 +96,8 @@
       cp FVCOM41/FVCOM_source/fvcom _run
 
       sudo chmod 777 /mnt
-    creates: /home/hpc/_run/fvcom
+    args:
+      creates: /home/hpc/_run/fvcom
 
   #- name: Run
     #become: yes
@@ -97,6 +105,11 @@
     #shell: |
       #cd _run
       #mpirun ./fvcom --CASENAME=wvi_inlets4
+  - name: Do science
+    become: yes
+    become_user: hpc
+    run_once: true
+    shell: touch master_only
 
   - debug:
       msg: "Hostnames : {{ groups['all'] | map('extract', hostvars, ['ansible_hostname']) | join(',') }}"

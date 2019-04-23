@@ -1,6 +1,6 @@
 variable instance_count {
   description = "Defines the number of VMs to be provisioned."
-  default     = "4"
+  default     = "2"
 }
 
 resource "azurerm_resource_group" "RG" {

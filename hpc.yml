@@ -33,6 +33,11 @@
       - patch
       - htop
       - iptraf-ng
+      - infiniband-diags
+      - libibverbs
+      - rdmacm-utils
+      - qperf
+      - libibverbs-utils
 
   - name: Add user hpc
     become: yes

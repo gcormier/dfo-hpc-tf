@@ -99,19 +99,15 @@
     args:
       creates: /home/hpc/_run/fvcom
 
-  #- name: Run
-    #become: yes
-    #become_user: hpc
-    #shell: |
-      #cd _run
-      #mpirun ./fvcom --CASENAME=wvi_inlets4
-  - name: Do science
-    become: yes
-    become_user: hpc
-    run_once: true
-    shell: touch master_only
-
   - debug:
       msg: "Hostnames : {{ groups['all'] | map('extract', hostvars, ['ansible_hostname']) | join(',') }}"
   - debug: 
       msg: "Internal IP's : {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }}"
+
+  - name: Run
+    become: yes
+    become_user: hpc
+    run_once: true
+    shell: |
+      cd _run
+      nohup mpirun -hosts {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }} ./fvcom --CASENAME=wvi_inlets4 > output.log &

@@ -77,6 +77,9 @@
       make libs gotm fvcom -j `nproc`
       make -j `nproc`
       cd
-      cp FVCOM41/FVCOM_source/fvcom FVCOM41/_run
-      
+      cp FVCOM41/FVCOM_source/fvcom _run
+
+      sudo chmod 777 /mnt
+      mpirun ./fvcom --CASENAME=wvi_inlets4
+
 

@@ -1,5 +1,6 @@
 - name: Setup base hpc
   hosts: all
+  gather_facts: true
   vars:
     testvar: "azcopy sync \"{{ lookup('env','SAS_URL') }}\" ./ --recursive"
   tasks:
@@ -88,8 +89,8 @@
       cp FVCOM41/FVCOM_source/fvcom _run
 
       sudo chmod 777 /mnt
-    creates: ~/_run/fvcom
-    
+    creates: /home/hpc/_run/fvcom
+
   #- name: Run
     #become: yes
     #become_user: hpc
@@ -97,4 +98,7 @@
       #cd _run
       #mpirun ./fvcom --CASENAME=wvi_inlets4
 
-
+  - debug:
+      msg: "Hostnames : {{ groups['all'] | map('extract', hostvars, ['ansible_hostname']) | join(',') }}"
+  - debug: 
+      msg: "Internal IP's : {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }}"

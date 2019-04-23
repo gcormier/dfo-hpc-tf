@@ -1,8 +1,8 @@
 - name: Setup base hpc
   hosts: all
+  become: yes
   tasks:
   - name: Make sure epel-release is available
-    become: yes
     yum:
       name: epel-release
 
@@ -27,3 +27,19 @@
       - netcdf-fortran-mpich-devel
       - hdf5-mpich
       - hdf5-mpich-devel
+
+  - name: Add user hpc
+    user:
+      name: hpc
+      shell: /bin/bash
+
+  - name: Set SSH key
+    authorized_key:
+      user: hpc
+      state: present
+      key: "{{ lookup('file', '~/hpc.key.pub') }}"
+
+  - name: Add hpc to sudoers
+    copy:
+      dest: "/etc/sudoers.d/devops"
+      content: "hpc  ALL=(ALL)  NOPASSWD: ALL"

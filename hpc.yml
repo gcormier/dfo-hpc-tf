@@ -51,9 +51,6 @@
       src: "~/hpc.key"
       dest: "/home/hpc/.ssh/id_dsa" 
       mode: 0600
-    #with_items:
-    #  - app_keys/id_dsa.pub
-    #  - app_keys/id_dsa
 
   - name: Add hpc to sudoers
     become: yes
@@ -91,7 +88,8 @@
       cp FVCOM41/FVCOM_source/fvcom _run
 
       sudo chmod 777 /mnt
-  
+    creates: ~/_run/fvcom
+    
   #- name: Run
     #become: yes
     #become_user: hpc

@@ -1,6 +1,6 @@
 variable instance_count {
   description = "Defines the number of VMs to be provisioned."
-  default     = "2"
+  default     = "4"
 }
 
 resource "azurerm_resource_group" "RG" {
@@ -60,8 +60,10 @@ resource "azurerm_virtual_machine" "vm" {
   availability_set_id   = "${azurerm_availability_set.avset.id}"
   resource_group_name   = "${azurerm_resource_group.RG.name}"
   network_interface_ids = ["${element(azurerm_network_interface.vnic.*.id, count.index)}"]
-  #vm_size               = "Standard_B4ms"
-  vm_size               = "Standard_F4s_v2"
+  #vm_size               = "Standard_B2ms"
+  #vm_size               = "Standard_F64s_v2"
+  vm_size               = "Standard_H16r"
+  
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
   delete_os_disk_on_termination = true

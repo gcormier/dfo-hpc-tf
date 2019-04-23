@@ -31,6 +31,8 @@
       - hdf5-mpich
       - hdf5-mpich-devel
       - patch
+      - htop
+      - iptraf-ng
 
   - name: Add user hpc
     become: yes
@@ -96,6 +98,8 @@
       cp FVCOM41/FVCOM_source/fvcom _run
 
       sudo chmod 777 /mnt
+      # Create the output directory
+      mkdir /mnt/fvcom
     args:
       creates: /home/hpc/_run/fvcom
 
@@ -110,4 +114,12 @@
     run_once: true
     shell: |
       cd _run
-      nohup mpirun -hosts {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }} ./fvcom --CASENAME=wvi_inlets4 > output.log &
+      #export PATH=$PATH:/usr/lib64/mpich/bin/    
+      source /opt/intel/impi/5.1.3.223/bin64/mpivars.sh  
+      export I_MPI_FABRICS=shm:tcp:dapl
+      export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
+      export I_MPI_DYNAMIC_CONNECTION=0
+      nohup mpirun -ppn `nproc` -hosts {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }} ./fvcom --CASENAME=wvi_inlets4 > /mnt/fvcom/stdout.txt 2> /mnt/fvcom/stderr.txt &
+      #mpirun -ppn `nproc` -hosts {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }} ./fvcom --CASENAME=wvi_inlets4 > /mnt/fvcom/stdout.txt 2> /mnt/fvcom/stderr.txt
+      azcopy sync /mnt/fvcom \"{{ lookup('env','SAS_URL') }}\" --recursive
+  

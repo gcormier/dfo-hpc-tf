@@ -35,6 +35,7 @@ resource "azurerm_network_interface" "vnic" {
   name                = "hpc-nic${count.index+1}"
   location            = "${azurerm_resource_group.RG.location}"
   resource_group_name = "${azurerm_resource_group.RG.name}"
+  enable_accelerated_networking = true
 
   ip_configuration {
     name                          = "testConfiguration"
@@ -61,8 +62,8 @@ resource "azurerm_virtual_machine" "vm" {
   resource_group_name   = "${azurerm_resource_group.RG.name}"
   network_interface_ids = ["${element(azurerm_network_interface.vnic.*.id, count.index)}"]
   #vm_size               = "Standard_B2ms"
-  #vm_size               = "Standard_F64s_v2"
-  vm_size               = "Standard_H16r"
+  vm_size               = "Standard_F4s_v2"
+  #vm_size               = "Standard_H16r"
   #vm_size               = "Standard_Hc44rs"
   
 

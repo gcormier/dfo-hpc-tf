@@ -17,7 +17,7 @@ variable accelerated {
 
 variable instance_size {
   description = "Size of the instance"
-  default = "F16s_v2"
+  default = "Standard_F16s_v2"
   #default = "Standard_B2ms"
   #default = "Standard_F16s_v2"
   #default = "Standard_H16r"
@@ -56,7 +56,7 @@ resource "azurerm_network_interface" "vnic" {
   name                = "hpc-nic${count.index+1}"
   location            = "${azurerm_resource_group.RG.location}"
   resource_group_name = "${azurerm_resource_group.RG.name}"
-  enable_accelerated_networking = true
+  enable_accelerated_networking = "${contains(var.accelerated, var.instance_size) ? true : false}"
 
   ip_configuration {
     name                          = "testConfiguration"
@@ -82,7 +82,7 @@ resource "azurerm_virtual_machine" "vm" {
   availability_set_id   = "${azurerm_availability_set.avset.id}"
   resource_group_name   = "${azurerm_resource_group.RG.name}"
   network_interface_ids = ["${element(azurerm_network_interface.vnic.*.id, count.index)}"]
-  vm_size               = "${contains(var.accelerated, var.instance_size) ? true : false}"
+  vm_size               = "${var.instance_size}"
 
   
 

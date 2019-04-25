@@ -1,6 +1,6 @@
 variable instance_count {
   description = "Defines the number of VMs to be provisioned."
-  default     = "2"
+  default     = "4"
 }
 
 variable accelerated {
@@ -8,19 +8,17 @@ variable accelerated {
   default=[ "Standard_F4s_v2",
             "Standard_F8s_v2",
             "Standard_F16s_v2",
-            "Standard_F32_v2",
-            "Standard_F464v2",
-            
-  
+            "Standard_F32s_v2",
+            "Standard_F64s_v2",
           ]
 }
 
 variable instance_size {
   description = "Size of the instance"
-  default = "Standard_F16s_v2"
+  #default = "Standard_F16s_v2"
   #default = "Standard_B2ms"
   #default = "Standard_F16s_v2"
-  #default = "Standard_H16r"
+  default = "Standard_H16r"
   #default = "Standard_Hc44rs"
 }
 

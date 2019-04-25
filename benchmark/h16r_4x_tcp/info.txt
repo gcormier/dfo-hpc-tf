@@ -1,0 +1,5 @@
+Linux hpc-vm2 3.10.0-693.21.1.el7.x86_64 #1 SMP Wed Mar 7 19:03:37 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+I_MPI_FABRICS=tcp
+I_MPI_DAPL_PROVIDER=ofa-v2-ib0
+Intel(R) MPI Library for Linux* OS, Version 5.1.3 Build 20160601 (build id: 15562)
+Copyright (C) 2003-2016, Intel Corporation. All rights reserved.

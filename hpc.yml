@@ -81,6 +81,7 @@
       creates: /usr/bin/azcopy
       remote_src: yes
       extra_opts: [--strip-components=1]
+    retries: 3
 
   - name: Download blob
     become: yes

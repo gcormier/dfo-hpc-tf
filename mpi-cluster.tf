@@ -3,6 +3,27 @@ variable instance_count {
   default     = "2"
 }
 
+variable accelerated {
+  description = "List of accelerated instance sizes"
+  default=[ "Standard_F4s_v2",
+            "Standard_F8s_v2",
+            "Standard_F16s_v2",
+            "Standard_F32_v2",
+            "Standard_F464v2",
+            
+  
+          ]
+}
+
+variable instance_size {
+  description = "Size of the instance"
+  default = "F16s_v2"
+  #default = "Standard_B2ms"
+  #default = "Standard_F16s_v2"
+  #default = "Standard_H16r"
+  #default = "Standard_Hc44rs"
+}
+
 resource "azurerm_resource_group" "RG" {
   name     = "HPC-TF-RG"
   location = "East US"
@@ -35,6 +56,7 @@ resource "azurerm_network_interface" "vnic" {
   name                = "hpc-nic${count.index+1}"
   location            = "${azurerm_resource_group.RG.location}"
   resource_group_name = "${azurerm_resource_group.RG.name}"
+  enable_accelerated_networking = true
 
   ip_configuration {
     name                          = "testConfiguration"
@@ -60,10 +82,8 @@ resource "azurerm_virtual_machine" "vm" {
   availability_set_id   = "${azurerm_availability_set.avset.id}"
   resource_group_name   = "${azurerm_resource_group.RG.name}"
   network_interface_ids = ["${element(azurerm_network_interface.vnic.*.id, count.index)}"]
-  #vm_size               = "Standard_B2ms"
-  #vm_size               = "Standard_F64s_v2"
-  vm_size               = "Standard_H16r"
-  #vm_size               = "Standard_Hc44rs"
+  vm_size               = ${contains(var.accelerated, var.instance_size) ? true : false}
+
   
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM

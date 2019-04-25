@@ -82,7 +82,7 @@ resource "azurerm_virtual_machine" "vm" {
   availability_set_id   = "${azurerm_availability_set.avset.id}"
   resource_group_name   = "${azurerm_resource_group.RG.name}"
   network_interface_ids = ["${element(azurerm_network_interface.vnic.*.id, count.index)}"]
-  vm_size               = ${contains(var.accelerated, var.instance_size) ? true : false}
+  vm_size               = "${contains(var.accelerated, var.instance_size) ? true : false}"
 
   
 

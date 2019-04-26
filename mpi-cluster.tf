@@ -15,14 +15,13 @@ variable accelerated {
 
 variable instance_size {
   description = "Size of the instance"
-  #default = "Standard_F16s_v2"
   #default = "Standard_B2ms"
-  #default = "Standard_F16s_v2"
-  default = "Standard_H16r"
+  default = "Standard_F16s_v2"
+  #default = "Standard_H16r"
   #default = "Standard_Hc44rs"
 }
 
-resource "azurerm_resource_group" "RG" {
+resource "azurerm_resource_group" "RG" {  
   name     = "HPC-TF-RG"
   location = "East US"
 }

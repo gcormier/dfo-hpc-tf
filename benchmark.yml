@@ -3,9 +3,9 @@
   gather_facts: true
   tasks:
   - name: Install lshw
-  become: yes
-  yum:
-    name: lshw
+    become: yes
+    yum:
+      name: lshw
 
   - name: Benchmark MPI
     become: yes

@@ -1,0 +1,1671 @@
+hpc-vm3
+    description: Desktop Computer
+    product: Virtual Machine
+    vendor: Microsoft Corporation
+    version: 7.0
+    serial: 0000-0003-7442-4827-0821-4769-77
+    width: 64 bits
+    capabilities: smbios-2.3 dmi-2.3 smp vsyscall32
+    configuration: boot=normal chassis=desktop uuid=F63DF633-2FE5-714A-B19D-776274F70488
+  *-core
+       description: Motherboard
+       product: Virtual Machine
+       vendor: Microsoft Corporation
+       physical id: 0
+       version: 7.0
+       serial: 0000-0012-7985-1698-0809-6636-24
+     *-firmware
+          description: BIOS
+          vendor: American Megatrends Inc.
+          physical id: 0
+          version: 090007
+          date: 06/02/2017
+          size: 64KiB
+          capacity: 256KiB
+          capabilities: isa pci pnp upgrade shadowing escd cdboot bootselect socketedrom edd int13floppy360 int13floppy1200 int13floppy720 int13floppy2880 int5printscreen int9keyboard int14serial int17printer int10video agp ls120boot zipboot biosbootspecification
+     *-cpu:0
+          description: CPU
+          product: Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz
+          vendor: Intel Corp.
+          vendor_id: GenuineIntel
+          physical id: 5
+          bus info: cpu@0
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          width: 64 bits
+          clock: 100MHz
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl xtopology eagerfpu pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single tpr_shadow vnmi ept vpid fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx avx512f avx512dq rdseed adx smap clflushopt avx512cd avx512bw avx512vl xsaveopt xsavec
+     *-cpu:1
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: 6
+          bus info: cpu@1
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:2
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: 7
+          bus info: cpu@2
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:3
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: 8
+          bus info: cpu@3
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:4
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: 9
+          bus info: cpu@4
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:5
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: a
+          bus info: cpu@5
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:6
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: b
+          bus info: cpu@6
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:7
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: c
+          bus info: cpu@7
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:8
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: d
+          bus info: cpu@8
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:9
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: e
+          bus info: cpu@9
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:10
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: f
+          bus info: cpu@10
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:11
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: 10
+          bus info: cpu@11
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:12
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: 11
+          bus info: cpu@12
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:13
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: 12
+          bus info: cpu@13
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:14
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: 13
+          bus info: cpu@14
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:15
+          description: CPU
+          product: Xeon (None)
+          vendor: Intel(R) Corporation
+          physical id: 14
+          bus info: cpu@15
+          version: None
+          serial: None
+          slot: None
+          size: 2700MHz
+          capacity: 3700MHz
+          clock: 100MHz
+     *-cpu:16 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 15
+          version: None
+          serial: None
+          slot: None
+     *-cpu:17 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 16
+          version: None
+          serial: None
+          slot: None
+     *-cpu:18 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 17
+          version: None
+          serial: None
+          slot: None
+     *-cpu:19 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 18
+          version: None
+          serial: None
+          slot: None
+     *-cpu:20 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 19
+          version: None
+          serial: None
+          slot: None
+     *-cpu:21 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 1a
+          version: None
+          serial: None
+          slot: None
+     *-cpu:22 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 1b
+          version: None
+          serial: None
+          slot: None
+     *-cpu:23 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 1c
+          version: None
+          serial: None
+          slot: None
+     *-cpu:24 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 1d
+          version: None
+          serial: None
+          slot: None
+     *-cpu:25 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 1e
+          version: None
+          serial: None
+          slot: None
+     *-cpu:26 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 1f
+          version: None
+          serial: None
+          slot: None
+     *-cpu:27 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 20
+          version: None
+          serial: None
+          slot: None
+     *-cpu:28 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 21
+          version: None
+          serial: None
+          slot: None
+     *-cpu:29 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 22
+          version: None
+          serial: None
+          slot: None
+     *-cpu:30 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 23
+          version: None
+          serial: None
+          slot: None
+     *-cpu:31 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 24
+          version: None
+          serial: None
+          slot: None
+     *-cpu:32 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 25
+          version: None
+          serial: None
+          slot: None
+     *-cpu:33 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 26
+          version: None
+          serial: None
+          slot: None
+     *-cpu:34 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 27
+          version: None
+          serial: None
+          slot: None
+     *-cpu:35 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 28
+          version: None
+          serial: None
+          slot: None
+     *-cpu:36 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 29
+          version: None
+          serial: None
+          slot: None
+     *-cpu:37 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 2a
+          version: None
+          serial: None
+          slot: None
+     *-cpu:38 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 2b
+          version: None
+          serial: None
+          slot: None
+     *-cpu:39 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 2c
+          version: None
+          serial: None
+          slot: None
+     *-cpu:40 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 2d
+          version: None
+          serial: None
+          slot: None
+     *-cpu:41 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 2e
+          version: None
+          serial: None
+          slot: None
+     *-cpu:42 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 2f
+          version: None
+          serial: None
+          slot: None
+     *-cpu:43 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 30
+          version: None
+          serial: None
+          slot: None
+     *-cpu:44 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 31
+          version: None
+          serial: None
+          slot: None
+     *-cpu:45 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 32
+          version: None
+          serial: None
+          slot: None
+     *-cpu:46 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 33
+          version: None
+          serial: None
+          slot: None
+     *-cpu:47 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 34
+          version: None
+          serial: None
+          slot: None
+     *-cpu:48 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 35
+          version: None
+          serial: None
+          slot: None
+     *-cpu:49 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 36
+          version: None
+          serial: None
+          slot: None
+     *-cpu:50 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 37
+          version: None
+          serial: None
+          slot: None
+     *-cpu:51 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 38
+          version: None
+          serial: None
+          slot: None
+     *-cpu:52 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 39
+          version: None
+          serial: None
+          slot: None
+     *-cpu:53 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 3a
+          version: None
+          serial: None
+          slot: None
+     *-cpu:54 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 3b
+          version: None
+          serial: None
+          slot: None
+     *-cpu:55 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 3c
+          version: None
+          serial: None
+          slot: None
+     *-cpu:56 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 3d
+          version: None
+          serial: None
+          slot: None
+     *-cpu:57 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 3e
+          version: None
+          serial: None
+          slot: None
+     *-cpu:58 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 3f
+          version: None
+          serial: None
+          slot: None
+     *-cpu:59 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 40
+          version: None
+          serial: None
+          slot: None
+     *-cpu:60 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 41
+          version: None
+          serial: None
+          slot: None
+     *-cpu:61 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 42
+          version: None
+          serial: None
+          slot: None
+     *-cpu:62 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 43
+          version: None
+          serial: None
+          slot: None
+     *-cpu:63 DISABLED
+          description: CPU [empty]
+          product: (None)
+          vendor: None
+          physical id: 44
+          version: None
+          serial: None
+          slot: None
+     *-memory
+          description: System Memory
+          physical id: 51
+          size: 32GiB
+        *-bank:0
+             product: None
+             vendor: Microsoft
+             physical id: 0
+             serial: None
+             slot: M0
+             size: 1GiB
+        *-bank:1
+             product: None
+             vendor: Microsoft
+             physical id: 1
+             serial: None
+             slot: M1
+             size: 31GiB
+        *-bank:2
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 2
+             serial: None
+             slot: M2
+        *-bank:3
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 3
+             serial: None
+             slot: M3
+        *-bank:4
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 4
+             serial: None
+             slot: M4
+        *-bank:5
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 5
+             serial: None
+             slot: M5
+        *-bank:6
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 6
+             serial: None
+             slot: M6
+        *-bank:7
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 7
+             serial: None
+             slot: M7
+        *-bank:8
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 8
+             serial: None
+             slot: M8
+        *-bank:9
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 9
+             serial: None
+             slot: M9
+        *-bank:10
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: a
+             serial: None
+             slot: M10
+        *-bank:11
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: b
+             serial: None
+             slot: M11
+        *-bank:12
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: c
+             serial: None
+             slot: M12
+        *-bank:13
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: d
+             serial: None
+             slot: M13
+        *-bank:14
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: e
+             serial: None
+             slot: M14
+        *-bank:15
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: f
+             serial: None
+             slot: M15
+        *-bank:16
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 10
+             serial: None
+             slot: M16
+        *-bank:17
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 11
+             serial: None
+             slot: M17
+        *-bank:18
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 12
+             serial: None
+             slot: M18
+        *-bank:19
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 13
+             serial: None
+             slot: M19
+        *-bank:20
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 14
+             serial: None
+             slot: M20
+        *-bank:21
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 15
+             serial: None
+             slot: M21
+        *-bank:22
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 16
+             serial: None
+             slot: M22
+        *-bank:23
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 17
+             serial: None
+             slot: M23
+        *-bank:24
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 18
+             serial: None
+             slot: M24
+        *-bank:25
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 19
+             serial: None
+             slot: M25
+        *-bank:26
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 1a
+             serial: None
+             slot: M26
+        *-bank:27
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 1b
+             serial: None
+             slot: M27
+        *-bank:28
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 1c
+             serial: None
+             slot: M28
+        *-bank:29
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 1d
+             serial: None
+             slot: M29
+        *-bank:30
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 1e
+             serial: None
+             slot: M30
+        *-bank:31
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 1f
+             serial: None
+             slot: M31
+        *-bank:32
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 20
+             serial: None
+             slot: M32
+        *-bank:33
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 21
+             serial: None
+             slot: M33
+        *-bank:34
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 22
+             serial: None
+             slot: M34
+        *-bank:35
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 23
+             serial: None
+             slot: M35
+        *-bank:36
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 24
+             serial: None
+             slot: M36
+        *-bank:37
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 25
+             serial: None
+             slot: M37
+        *-bank:38
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 26
+             serial: None
+             slot: M38
+        *-bank:39
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 27
+             serial: None
+             slot: M39
+        *-bank:40
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 28
+             serial: None
+             slot: M40
+        *-bank:41
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 29
+             serial: None
+             slot: M41
+        *-bank:42
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 2a
+             serial: None
+             slot: M42
+        *-bank:43
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 2b
+             serial: None
+             slot: M43
+        *-bank:44
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 2c
+             serial: None
+             slot: M44
+        *-bank:45
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 2d
+             serial: None
+             slot: M45
+        *-bank:46
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 2e
+             serial: None
+             slot: M46
+        *-bank:47
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 2f
+             serial: None
+             slot: M47
+        *-bank:48
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 30
+             serial: None
+             slot: M48
+        *-bank:49
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 31
+             serial: None
+             slot: M49
+        *-bank:50
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 32
+             serial: None
+             slot: M50
+        *-bank:51
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 33
+             serial: None
+             slot: M51
+        *-bank:52
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 34
+             serial: None
+             slot: M52
+        *-bank:53
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 35
+             serial: None
+             slot: M53
+        *-bank:54
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 36
+             serial: None
+             slot: M54
+        *-bank:55
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 37
+             serial: None
+             slot: M55
+        *-bank:56
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 38
+             serial: None
+             slot: M56
+        *-bank:57
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 39
+             serial: None
+             slot: M57
+        *-bank:58
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 3a
+             serial: None
+             slot: M58
+        *-bank:59
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 3b
+             serial: None
+             slot: M59
+        *-bank:60
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 3c
+             serial: None
+             slot: M60
+        *-bank:61
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 3d
+             serial: None
+             slot: M61
+        *-bank:62
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 3e
+             serial: None
+             slot: M62
+        *-bank:63
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 3f
+             serial: None
+             slot: M63
+        *-bank:64
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 40
+             serial: None
+             slot: M64
+        *-bank:65
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 41
+             serial: None
+             slot: M65
+        *-bank:66
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 42
+             serial: None
+             slot: M66
+        *-bank:67
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 43
+             serial: None
+             slot: M67
+        *-bank:68
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 44
+             serial: None
+             slot: M68
+        *-bank:69
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 45
+             serial: None
+             slot: M69
+        *-bank:70
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 46
+             serial: None
+             slot: M70
+        *-bank:71
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 47
+             serial: None
+             slot: M71
+        *-bank:72
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 48
+             serial: None
+             slot: M71
+        *-bank:73
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 49
+             serial: None
+             slot: M73
+        *-bank:74
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 4a
+             serial: None
+             slot: M74
+        *-bank:75
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 4b
+             serial: None
+             slot: M75
+        *-bank:76
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 4c
+             serial: None
+             slot: M76
+        *-bank:77
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 4d
+             serial: None
+             slot: M77
+        *-bank:78
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 4e
+             serial: None
+             slot: M78
+        *-bank:79
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 4f
+             serial: None
+             slot: M79
+        *-bank:80
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 50
+             serial: None
+             slot: M80
+        *-bank:81
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 51
+             serial: None
+             slot: M81
+        *-bank:82
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 52
+             serial: None
+             slot: M82
+        *-bank:83
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 53
+             serial: None
+             slot: M83
+        *-bank:84
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 54
+             serial: None
+             slot: M84
+        *-bank:85
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 55
+             serial: None
+             slot: M85
+        *-bank:86
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 56
+             serial: None
+             slot: M86
+        *-bank:87
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 57
+             serial: None
+             slot: M87
+        *-bank:88
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 58
+             serial: None
+             slot: M88
+        *-bank:89
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 59
+             serial: None
+             slot: M89
+        *-bank:90
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 5a
+             serial: None
+             slot: M90
+        *-bank:91
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 5b
+             serial: None
+             slot: M91
+        *-bank:92
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 5c
+             serial: None
+             slot: M92
+        *-bank:93
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 5d
+             serial: None
+             slot: M93
+        *-bank:94
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 5e
+             serial: None
+             slot: M94
+        *-bank:95
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 5f
+             serial: None
+             slot: M95
+        *-bank:96
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 60
+             serial: None
+             slot: M96
+        *-bank:97
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 61
+             serial: None
+             slot: M97
+        *-bank:98
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 62
+             serial: None
+             slot: M98
+        *-bank:99
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 63
+             serial: None
+             slot: M99
+        *-bank:100
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 64
+             serial: None
+             slot: M100
+        *-bank:101
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 65
+             serial: None
+             slot: M101
+        *-bank:102
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 66
+             serial: None
+             slot: M102
+        *-bank:103
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 67
+             serial: None
+             slot: M103
+        *-bank:104
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 68
+             serial: None
+             slot: M104
+        *-bank:105
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 69
+             serial: None
+             slot: M105
+        *-bank:106
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 6a
+             serial: None
+             slot: M106
+        *-bank:107
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 6b
+             serial: None
+             slot: M107
+        *-bank:108
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 6c
+             serial: None
+             slot: M108
+        *-bank:109
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 6d
+             serial: None
+             slot: M109
+        *-bank:110
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 6e
+             serial: None
+             slot: M110
+        *-bank:111
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 6f
+             serial: None
+             slot: M111
+        *-bank:112
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 70
+             serial: None
+             slot: M112
+        *-bank:113
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 71
+             serial: None
+             slot: M113
+        *-bank:114
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 72
+             serial: None
+             slot: M114
+        *-bank:115
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 73
+             serial: None
+             slot: M115
+        *-bank:116
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 74
+             serial: None
+             slot: M116
+        *-bank:117
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 75
+             serial: None
+             slot: M117
+        *-bank:118
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 76
+             serial: None
+             slot: M118
+        *-bank:119
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 77
+             serial: None
+             slot: M119
+        *-bank:120
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 78
+             serial: None
+             slot: M120
+        *-bank:121
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 79
+             serial: None
+             slot: M121
+        *-bank:122
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 7a
+             serial: None
+             slot: M122
+        *-bank:123
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 7b
+             serial: None
+             slot: M123
+        *-bank:124
+             description: [empty]
+             product: None
+             vendor: Microsoft
+             physical id: 7c
+             serial: None
+             slot: M124
+     *-pci
+          description: Host bridge
+          product: 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (AGP disabled)
+          vendor: Intel Corporation
+          physical id: 100
+          bus info: pci@0000:00:00.0
+          version: 03
+          width: 32 bits
+          clock: 33MHz
+        *-isa
+             description: ISA bridge
+             product: 82371AB/EB/MB PIIX4 ISA
+             vendor: Intel Corporation
+             physical id: 7
+             bus info: pci@0000:00:07.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: isa bus_master
+             configuration: latency=0
+        *-ide
+             description: IDE interface
+             product: 82371AB/EB/MB PIIX4 IDE
+             vendor: Intel Corporation
+             physical id: 7.1
+             bus info: pci@0000:00:07.1
+             logical name: scsi1
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: ide bus_master emulated
+             configuration: driver=ata_piix latency=0
+             resources: irq:0 ioport:1f0(size=8) ioport:3f6 ioport:170(size=8) ioport:376 ioport:ffa0(size=16)
+           *-cdrom
+                description: DVD reader
+                product: Virtual CD/ROM
+                vendor: Msft
+                physical id: 0.0.0
+                bus info: scsi@1:0.0.0
+                logical name: /dev/cdrom
+                logical name: /dev/sr0
+                version: 1.0
+                capabilities: removable audio dvd
+                configuration: ansiversion=5 status=nodisc
+        *-bridge UNCLAIMED
+             description: Bridge
+             product: 82371AB/EB/MB PIIX4 ACPI
+             vendor: Intel Corporation
+             physical id: 7.3
+             bus info: pci@0000:00:07.3
+             version: 02
+             width: 32 bits
+             clock: 33MHz
+             capabilities: bridge
+             configuration: latency=0
+        *-display
+             description: VGA compatible controller
+             product: Hyper-V virtual VGA
+             vendor: Microsoft Corporation
+             physical id: 8
+             bus info: pci@0000:00:08.0
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: vga_controller bus_master rom
+             configuration: driver=hyperv_fb latency=0
+             resources: irq:11 memory:f8000000-fbffffff
+     *-network
+          description: Ethernet interface
+          product: MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
+          vendor: Mellanox Technologies
+          physical id: 2
+          bus info: pci@0001:00:02.0
+          logical name: eth1
+          version: 00
+          serial: 00:0d:3a:54:0f:b4
+          width: 64 bits
+          clock: 33MHz
+          capabilities: pciexpress msix pm bus_master cap_list ethernet physical fibre autonegotiation
+          configuration: autonegotiation=on broadcast=yes driver=mlx4_en driverversion=2.2-1 (Feb 2014) duplex=full firmware=2.41.7308 latency=0 link=yes multicast=yes slave=yes
+          resources: iomemory:f0-ef irq:0 memory:fe0000000-fe07fffff
+     *-pnp00:00
+          product: PnP device PNP0b00
+          physical id: 1
+          capabilities: pnp
+          configuration: driver=rtc_cmos
+     *-pnp00:01
+          product: PnP device PNP0303
+          physical id: 3
+          capabilities: pnp
+          configuration: driver=i8042 kbd
+     *-pnp00:02
+          product: PnP device PNP0f03
+          physical id: 4
+          capabilities: pnp
+          configuration: driver=i8042 aux
+     *-pnp00:03
+          product: PnP device PNP0501
+          physical id: 45
+          capabilities: pnp
+          configuration: driver=serial
+     *-pnp00:04
+          product: PnP device PNP0501
+          physical id: 46
+          capabilities: pnp
+          configuration: driver=serial
+     *-pnp00:05
+          product: PnP device PNP0700
+          physical id: 47
+          capabilities: pnp
+     *-pnp00:06
+          product: PnP device PNP0c02
+          physical id: 48
+          capabilities: pnp
+          configuration: driver=system
+     *-pnp00:07
+          product: PnP device PNP0c02
+          physical id: 49
+          capabilities: pnp
+          configuration: driver=system
+     *-pnp00:08
+          product: PnP device PNP0c01
+          physical id: 4a
+          capabilities: pnp
+          configuration: driver=system
+     *-scsi:0
+          physical id: 4b
+          logical name: scsi2
+        *-disk
+             description: SCSI Disk
+             product: Virtual Disk
+             vendor: Msft
+             physical id: 0.0.0
+             bus info: scsi@2:0.0.0
+             logical name: /dev/sda
+             version: 1.0
+             size: 30GiB (32GB)
+             capabilities: partitioned partitioned:dos
+             configuration: ansiversion=5 logicalsectorsize=512 sectorsize=4096 signature=000df10f
+           *-volume:0 UNCLAIMED
+                description: Linux filesystem partition
+                physical id: 1
+                bus info: scsi@2:0.0.0,1
+                capacity: 500MiB
+                capabilities: primary bootable
+           *-volume:1
+                description: Linux filesystem partition
+                physical id: 2
+                bus info: scsi@2:0.0.0,2
+                logical name: /dev/sda2
+                logical name: /
+                capacity: 29GiB
+                capabilities: primary
+                configuration: mount.fstype=xfs mount.options=rw,seclabel,relatime,attr2,inode64,noquota state=mounted
+     *-scsi:1
+          physical id: 4c
+          logical name: scsi3
+        *-disk
+             description: SCSI Disk
+             product: Virtual Disk
+             vendor: Msft
+             physical id: 0.1.0
+             bus info: scsi@3:0.1.0
+             logical name: /dev/sdb
+             version: 1.0
+             size: 128GiB (137GB)
+             capabilities: partitioned partitioned:dos
+             configuration: ansiversion=5 logicalsectorsize=512 sectorsize=4096 signature=33f63df6
+           *-volume
+                description: EXT4 volume
+                vendor: Linux
+                physical id: 1
+                bus info: scsi@3:0.1.0,1
+                logical name: /dev/sdb1
+                logical name: /mnt/resource
+                version: 1.0
+                serial: fac97e6f-f160-4556-ae8d-eb635d0adb53
+                size: 127GiB
+                capacity: 127GiB
+                capabilities: primary journaled extended_attributes large_files huge_files dir_nlink recover 64bit extents ext4 ext2 initialized
+                configuration: created=2019-04-25 22:20:58 filesystem=ext4 lastmountpoint=/mnt/resource modified=2019-04-25 22:20:59 mount.fstype=ext4 mount.options=rw,seclabel,relatime,data=ordered mounted=2019-04-25 22:20:59 state=mounted
+  *-network
+       description: Ethernet interface
+       physical id: 1
+       logical name: eth0
+       serial: 00:0d:3a:54:0f:b4
+       capabilities: ethernet physical
+       configuration: autonegotiation=off broadcast=yes driver=hv_netvsc duplex=full firmware=N/A ip=10.0.0.4 link=yes multicast=yes

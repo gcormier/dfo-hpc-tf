@@ -1,6 +1,15 @@
 variable instance_count {
   description = "Defines the number of VMs to be provisioned."
-  default     = "4"
+  default     = "1"
+}
+
+variable instance_size {
+  description = "Size of the instance"
+  #default = "Standard_B2ms"
+  #default = "Standard_F16s_v2"
+  default = "Standard_F4s_v2"
+  #default = "Standard_H16r"
+  #default = "Standard_Hc44rs"
 }
 
 variable accelerated {
@@ -13,13 +22,7 @@ variable accelerated {
           ]
 }
 
-variable instance_size {
-  description = "Size of the instance"
-  #default = "Standard_B2ms"
-  default = "Standard_F16s_v2"
-  #default = "Standard_H16r"
-  #default = "Standard_Hc44rs"
-}
+
 
 resource "azurerm_resource_group" "RG" {  
   name     = "HPC-TF-RG"
@@ -91,8 +94,8 @@ resource "azurerm_virtual_machine" "vm" {
 
   storage_image_reference {
     publisher = "OpenLogic"
-    offer     = "CentOS-HPC"
-    sku       = "7.4"
+    offer     = "CentOS"
+    sku       = "7.5"
     version   = "latest"
   }
 

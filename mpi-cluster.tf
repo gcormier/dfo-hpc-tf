@@ -1,13 +1,13 @@
 variable instance_count {
   description = "Defines the number of VMs to be provisioned."
-  default     = "1"
+  default     = "4"
 }
 
 variable instance_size {
   description = "Size of the instance"
   #default = "Standard_B2ms"
-  #default = "Standard_F16s_v2"
-  default = "Standard_F4s_v2"
+  default = "Standard_F64s_v2"
+  #default = "Standard_F4s_v2"
   #default = "Standard_H16r"
   #default = "Standard_Hc44rs"
 }
@@ -94,10 +94,18 @@ resource "azurerm_virtual_machine" "vm" {
 
   storage_image_reference {
     publisher = "OpenLogic"
-    offer     = "CentOS"
-    sku       = "7.5"
+    offer     = "CentOS-HPC"
+    sku       = "7.4"
     version   = "latest"
   }
+
+#  storage_image_reference {
+#    publisher = "Canonical"
+#    offer     = "UbuntuServer"
+#    sku       = "18.04-LTS"
+#    version   = "latest"
+#  }
+
 
   storage_os_disk {
     name              = "osdisk${count.index+1}"
@@ -140,4 +148,8 @@ resource "azurerm_virtual_machine" "vm" {
 
 output "pips_for_ansible_hosts" {
   value = "${azurerm_public_ip.pip.*.ip_address}"
+}
+
+output "ime" {
+  value = "${formatlist("%s", azurerm_public_ip.pip.*.ip_address)}"
 }

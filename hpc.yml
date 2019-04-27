@@ -115,7 +115,6 @@
       msg: "Internal IP's : {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }}"
 
   - name: Do science
-    tags: compute
     become: yes
     become_user: hpc
     run_once: true
@@ -123,12 +122,11 @@
       cd _run
       #export PATH=$PATH:/usr/lib64/mpich/bin/    
       source /opt/intel/impi/5.1.3.223/bin64/mpivars.sh  
-      # Unless you want to force it, better to let mpi pick the best fabric
-      #export I_MPI_FABRICS=shm:tcp
+      #export I_MPI_FABRICS=dapl
       #export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
       #export I_MPI_DYNAMIC_CONNECTION=0
       #touch /mnt/fvcom/SAMPLEOUTPUT
       #nohup mpirun -ppn `nproc` -hosts {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }} ./fvcom --CASENAME=wvi_inlets4 > /mnt/fvcom/stdout.txt 2> /mnt/fvcom/stderr.txt &
-      mpirun -ppn `nproc` -hosts {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }} ./fvcom --CASENAME=wvi_inlets4 > /mnt/fvcom/stdout.txt 2> /mnt/fvcom/stderr.txt
-      azcopy copy /mnt/fvcom \"{{ lookup('env','SAS_URL') }}\" --recursive
-     
+      #mpirun -ppn `nproc` -hosts {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }} ./fvcom --CASENAME=wvi_inlets4 > /mnt/fvcom/stdout.txt 2> /mnt/fvcom/stderr.txt
+      #azcopy sync /mnt/fvcom \"{{ lookup('env','SAS_URL') }}\" --recursive
+   

@@ -1,15 +1,19 @@
 variable instance_count {
   description = "Defines the number of VMs to be provisioned."
-  default     = "4"
+  default     = "1"
+}
+variable location {
+  description = "Location of the infrastructure"
+  default = "East US"
 }
 
 variable instance_size {
   description = "Size of the instance"
   #default = "Standard_B2ms"
-  default = "Standard_F64s_v2"
+  #default = "Standard_F64s_v2"
   #default = "Standard_F4s_v2"
   #default = "Standard_H16r"
-  #default = "Standard_Hc44rs"
+  default = "Standard_Hc44rs"
 }
 
 variable accelerated {
@@ -26,7 +30,7 @@ variable accelerated {
 
 resource "azurerm_resource_group" "RG" {  
   name     = "HPC-TF-RG"
-  location = "East US"
+  location = "${var.location}"
 }
 
 resource "azurerm_virtual_network" "vnet" {

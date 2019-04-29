@@ -86,7 +86,7 @@
   - name: Download blob
     become: yes
     become_user: hpc
-    shell: "azcopy sync \"{{ lookup('env','SAS_URL') }}\" ./ --recursive"
+    shell: "azcopy copy \"{{ lookup('env','SAS_URL') }}\" ./ --recursive"
 
   - name: Compile
     become: yes
@@ -113,6 +113,9 @@
       msg: "Hostnames : {{ groups['all'] | map('extract', hostvars, ['ansible_hostname']) | join(',') }}"
   - debug: 
       msg: "Internal IP's : {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }}"
+  - debug: 
+      msg: "mpirun -hosts {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }} IMB-MPI1"
+
 
   - name: Do science
     become: yes
@@ -124,10 +127,10 @@
       source /opt/intel/impi/5.1.3.223/bin64/mpivars.sh  
       export I_MPI_FABRICS=shm:dapl
       #export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
-      #export I_MPI_DYNAMIC_CONNECTION=0
+      export I_MPI_DYNAMIC_CONNECTION=0
       #export I_MPI_DEBUG=5
       #touch /mnt/fvcom/SAMPLEOUTPUT
       #nohup mpirun -ppn `nproc` -hosts {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }} ./fvcom --CASENAME=wvi_inlets4 > /mnt/fvcom/stdout.txt 2> /mnt/fvcom/stderr.txt &
       #mpirun -ppn `nproc` -hosts {{ groups['all'] | map('extract', hostvars, ['ansible_eth0', 'ipv4', 'address']) | join(',') }} ./fvcom --CASENAME=wvi_inlets4 > /mnt/fvcom/stdout.txt 2> /mnt/fvcom/stderr.txt
       #azcopy sync /mnt/fvcom \"{{ lookup('env','SAS_URL') }}\" --recursive
-      
+      #mpirun -hosts 10.0.0.4,10.0.0.5 IMB-MPI1

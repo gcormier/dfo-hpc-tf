@@ -72,7 +72,7 @@
     copy:
       dest: "~/.ssh/config"
       content: "Host *\n    StrictHostKeyChecking no\n"
-
+    
   - name: Install azcopy to /usr/bin
     become: yes
     unarchive:
@@ -93,21 +93,21 @@
     become_user: hpc
     shell: |
       export PATH=$PATH:/usr/lib64/mpich/bin/
-      chmod -R 755 FVCOM41
-      cd FVCOM41/Configure/
+      chmod -R 755 fvcom
+      cd fvcom/FVCOM41/Configure/
       ./setup -a FEDORA-GCC -c wvi_inlets4_heating
 
       make clean
       make libs gotm fvcom -j `nproc`
       make -j `nproc`
       cd
-      cp FVCOM41/FVCOM_source/fvcom _run
+      cp fvcom/FVCOM41/FVCOM_source/fvcom fvcom/_run
 
       sudo chmod 777 /mnt
       # Create the output directory
       mkdir /mnt/fvcom
     args:
-      creates: /home/hpc/_run/fvcom
+      creates: /home/hpc/fvcom/_run/fvcom
 
   - debug:
       msg: "Hostnames : {{ groups['all'] | map('extract', hostvars, ['ansible_hostname']) | join(',') }}"
@@ -122,6 +122,7 @@
     become_user: hpc
     run_once: true
     shell: |
+      cd fvcom
       cd _run
       #export PATH=$PATH:/usr/lib64/mpich/bin/    
       source /opt/intel/impi/5.1.3.223/bin64/mpivars.sh  

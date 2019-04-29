@@ -2,8 +2,14 @@ variable instance_count {
   description = "Defines the number of VMs to be provisioned."
   default     = "2"
 }
+variable app_name {
+  description = "Application Name"
+  default = "fvcom"
+}
+
 variable location {
   description = "Location of the infrastructure"
+  #default = "South Central US"
   default = "East US"
 }
 
@@ -32,12 +38,12 @@ variable accelerated {
 
 
 resource "azurerm_resource_group" "RG" {  
-  name     = "HPC-TF-RG"
+  name     = "HPC-${upper(var.app_name)}-RG"
   location = "${var.location}"
 }
 
 resource "azurerm_virtual_network" "vnet" {
-  name                = "HPC-TF-VNET"
+  name                = "HPC-${upper(var.app_name)}-VNET"
   address_space       = ["10.0.0.0/16"]
   location            = "${azurerm_resource_group.RG.location}"
   resource_group_name = "${azurerm_resource_group.RG.name}"
@@ -51,7 +57,7 @@ resource "azurerm_subnet" "subnet" {
 }
 
 resource "azurerm_public_ip" "pip" {
-  name                = "hpc-vm${count.index+1}-pip"
+  name                = "${lower(var.app_name)}-vm${count.index+1}-pip"
   location            = "${azurerm_resource_group.RG.location}"
   resource_group_name = "${azurerm_resource_group.RG.name}"
   allocation_method   = "Static"
@@ -60,7 +66,7 @@ resource "azurerm_public_ip" "pip" {
 
 resource "azurerm_network_interface" "vnic" {
   count               = "${var.instance_count}"
-  name                = "hpc-nic${count.index+1}"
+  name                = "hpc-${lower(var.app_name)}-nic${count.index+1}"
   location            = "${azurerm_resource_group.RG.location}"
   resource_group_name = "${azurerm_resource_group.RG.name}"
   enable_accelerated_networking = "${contains(var.accelerated, var.instance_size) ? true : false}"
@@ -74,7 +80,7 @@ resource "azurerm_network_interface" "vnic" {
 }
 
 resource "azurerm_availability_set" "avset" {
-  name                         = "avset"
+  name                         = "${lower(var.app_name)}-avset"
   location                     = "${azurerm_resource_group.RG.location}"
   resource_group_name          = "${azurerm_resource_group.RG.name}"
   platform_fault_domain_count  = 1
@@ -84,7 +90,7 @@ resource "azurerm_availability_set" "avset" {
 
 resource "azurerm_virtual_machine" "vm" {
   count                 = "${var.instance_count}"
-  name                  = "hpc-vm${count.index+1}"
+  name                  = "hpc-${lower(var.app_name)}-vm${count.index+1}"
   location              = "${azurerm_resource_group.RG.location}"
   availability_set_id   = "${azurerm_availability_set.avset.id}"
   resource_group_name   = "${azurerm_resource_group.RG.name}"
@@ -118,7 +124,7 @@ resource "azurerm_virtual_machine" "vm" {
     name              = "osdisk${count.index+1}"
     caching           = "ReadWrite"
     create_option     = "FromImage"
-    managed_disk_type = "Standard_LRS"
+    managed_disk_type = "StandardSSD_LRS"
   }
 
   # Optional data disks
@@ -131,7 +137,7 @@ resource "azurerm_virtual_machine" "vm" {
   #}
 
   os_profile {
-    computer_name  = "hpc-vm${count.index+1}"
+    computer_name  = "hpc-${lower(var.app_name)}-vm${count.index+1}"
     admin_username = "ansible"
   }
   os_profile_linux_config {

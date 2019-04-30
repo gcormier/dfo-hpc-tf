@@ -4,13 +4,13 @@ variable instance_count {
 }
 variable app_name {
   description = "Application Name"
-  default = "fvcom"
+  default = "h16r2"
 }
 
 variable location {
   description = "Location of the infrastructure"
-  default = "South Central US"
-  #default = "East US"
+  #default = "South Central US"
+  default = "East US"
 }
 
 variable instance_size {
@@ -18,9 +18,9 @@ variable instance_size {
   #default = "Standard_B2ms"
   #default = "Standard_F64s_v2"
   #default = "Standard_F4s_v2"
-  #default = "Standard_H16r"
+  default = "Standard_H16r"
   #default = "Standard_Hc44rs"
-  default = "Standard_Hb60rs"
+  #default = "Standard_Hb60rs"
 }
 
 variable accelerated {
@@ -124,7 +124,7 @@ resource "azurerm_virtual_machine" "vm" {
     name              = "osdisk${count.index+1}"
     caching           = "ReadWrite"
     create_option     = "FromImage"
-    managed_disk_type = "Premium_LRS"
+    managed_disk_type = "StandardSSD_LRS"
   }
 
   # Optional data disks

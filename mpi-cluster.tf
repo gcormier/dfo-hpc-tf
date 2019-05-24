@@ -18,8 +18,8 @@ variable instance_size {
   #default = "Standard_B2ms"
   #default = "Standard_F64s_v2"
   #default = "Standard_F4s_v2"
-  default = "Standard_H16r"
-  #default = "Standard_Hc44rs"
+  #default = "Standard_H16r"
+  default = "Standard_Hc44rs"
   #default = "Standard_Hb60rs"
 }
 

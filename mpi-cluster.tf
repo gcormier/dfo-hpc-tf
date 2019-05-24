@@ -145,7 +145,7 @@ resource "azurerm_virtual_machine" "vm" {
 
     ssh_keys {
       path     = "/home/ansible/.ssh/authorized_keys"
-      key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCyeslZL7rYdXx9LseK6Uur9jNR5Ed7Tjg3dgP4+v/DcYH/cQvV8RMY4FDJA/t6RKDcN91CMPnc05XCTjcP1hmKOyLUeJXvAzbAtQWcorGmiHwMpXkSkRBuOxTnkOcAVbEDXwnXWUCo2GJq0am2KtVD8L031qBDlJwwNrzjKBr6QP0ApJs0fGcjDUD8j9szFr3xx4NyeDhkCHMtPGqCxNVeUR7JHjUQBHvTHaSLtQuChW/BpjnQysKIWUkjflvprClUH28UXHFS1C+O0+N+W5wrfJ9UbqgjN/BPT2vWAs3fyZjT1RUrrzuGFil5Z9hvJm35U0IoJ0RYUazJ7lE69bqiFEBqUMSBHFuAloXjp22odMtk0+mhGKpckXXg19zQtwIz6LQEHokawNI1+e6y7041FCDU8HvozN5fz+lJx2rkIDHSk6vO3Nroci02DGGlV6QEzI4BRd1prj6tE71MZ8k7/KQMrubfxtXuzBsozjp+LPB62MZj/ex9tApYg+TmwFcluHF+6LHOuk+Ubq03tMlGSymcKn6km2s9sGqQ6X7WY+55g+V4JcdnFjeNyzIX+T4kMAVl6nM0gWUrSlrc5Y95MA7pFNQJMyA0MUPp3FRX7Z25jDuqZcgmTrd0YLL63bxjgSSd0sV7prPEo6ho3vWKKyZo9L3UPIEWpm/X/MD89Q== greg"
+      key_data = "${file("../ansible.key.pub")}"
     }
   }
   

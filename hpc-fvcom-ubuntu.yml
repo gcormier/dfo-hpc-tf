@@ -79,7 +79,8 @@
     become: yes
     become_user: hpc
     shell: |
-      chmod -R 755 ~/fvcom
+      cd
+      chmod -R 755 fvcom
       cd fvcom/FVCOM41/Configure/
       ./setup -a UBUNTU-18.04-GCC -c wvi_inlets4_heating
 

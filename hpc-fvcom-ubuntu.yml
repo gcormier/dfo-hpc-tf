@@ -98,7 +98,8 @@
       cd opa-mpi-apps/MpiApps/apps/imb/src
       make CC=mpicc
       cp IMB-MPI1 ~/fvcom/_run
-      
+      #/usr/share/openmpi/mca-btl-openib-device-params.ini
+
 
     args:
       creates: ~/fvcom/_run/fvcom

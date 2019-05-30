@@ -4,7 +4,7 @@ variable instance_count {
 }
 variable app_name {
 	description = "Application Name"
-	default = "HPC-MEQ-INFRA"
+	default = "fvcom"
 }
 
 variable location {
@@ -15,7 +15,6 @@ variable location {
 
 variable instance_size {
 	description = "Size of the instance"
-	#default = "Standard_B2ms"
 	#default = "Standard_F64s_v2"
 	#default = "Standard_F4s_v2"
 	#default = "Standard_H16r"
@@ -34,8 +33,6 @@ variable accelerated {
 						#"Standard_Hb60rs"
 					]
 }
-
-
 
 resource "azurerm_resource_group" "RG" {  
 	name     = "HPC-${upper(var.app_name)}-RG"
@@ -105,19 +102,19 @@ resource "azurerm_virtual_machine" "vm" {
 	# Uncomment this line to delete the data disks automatically when deleting the VM
 	delete_data_disks_on_termination = true
 
+#	storage_image_reference {
+#		publisher = "OpenLogic"
+#		offer     = "CentOS-HPC"
+#		sku       = "7.6"
+#		version   = "latest"
+#	}
+
 	storage_image_reference {
-		publisher = "OpenLogic"
-		offer     = "CentOS-HPC"
-		sku       = "7.6"
+		publisher = "Canonical"
+		offer     = "UbuntuServer"
+		sku       = "18.04-LTS"
 		version   = "latest"
 	}
-
-#  storage_image_reference {
-#    publisher = "Canonical"
-#    offer     = "UbuntuServer"
-#    sku       = "18.04-LTS"
-#    version   = "latest"
-#  }
 
 
 	storage_os_disk {
@@ -145,7 +142,7 @@ resource "azurerm_virtual_machine" "vm" {
 
 		ssh_keys {
 			path     = "/home/ansible/.ssh/authorized_keys"
-			key_data = "${file("../ansible.key.pub")}"
+			key_data = "${file("~/ansible.key.pub")}"
 		}
 	}
 	
@@ -158,7 +155,7 @@ resource "null_resource" "prep_ansible" {
 	depends_on = ["azurerm_virtual_machine.vm"]
 
 	provisioner "local-exec" {
-		command = "echo [default] ${join(" ", azurerm_public_ip.pip.*.ip_address)} | tr \" \" \"\n\" > ansible.hosts"
+		command = "echo [all] ${join(" ", azurerm_public_ip.pip.*.ip_address)} | tr \" \" \"\n\" > ansible.hosts"
 	}
 }
 
@@ -169,3 +166,6 @@ output "pips_for_ansible_hosts" {
 output "ime" {
 	value = "${formatlist("%s", azurerm_public_ip.pip.*.ip_address)}"
 }
+
+# ssh -i ~/ansible.key ansible@1.2.3.4
+# ansible-playbook hpc-fvcom.yml -i ansible.hosts

@@ -10,3 +10,4 @@
 *.retry
 
 hosts
+ansible.hosts

@@ -93,6 +93,13 @@
       sudo chmod 777 /mnt
       # Create the output directory
       mkdir /mnt/fvcom
+      cd
+      git clone https://github.com/intel/opa-mpi-apps/
+      cd opa-mpi-apps/MpiApps/apps/imb/src
+      make CC=mpicc
+      cp IMB-MPI1 ~/fvcom/_run
+      
+
     args:
       creates: ~/fvcom/_run/fvcom
 
@@ -109,6 +116,7 @@
     become_user: hpc
     run_once: true
     shell: |
+      cd
       cd fvcom/_run
       #export PATH=$PATH:/usr/lib64/openmpi/bin/    
       #export I_MPI_FABRICS=shm:dapl
